@@ -11,6 +11,14 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Introduction
+
+The data used in the report is regarding building certification lodgements in the Townsville local government area. Townsville is a city and a major port area in eastern Queensland, Australia. The data set been extracted from [www.data.gov.au](https://data.gov.au/data/dataset/tcc-building-approvals). 
+
+This data set includes number of building approvals from 2009 to 2021 and can be aggregated by month, suburb and local government electoral division.  
+
+The objective of the report is to identify the year with maximum approvals and to analyze data regarding the building category maximum in demand i.e. the Suburb and total cost for that category.
+
 \section*{1}
 
 
