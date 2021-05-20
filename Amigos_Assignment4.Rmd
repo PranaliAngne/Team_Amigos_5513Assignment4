@@ -59,9 +59,9 @@ Above are the description of the variables used in the dataset.
 + *Electoral Division*: The local government electoral division in which the works are occurring.
 
 
-<<<<<<< HEAD
 
-=======
+
+
 # Q1: Which **Year** has maximum approvals regarding the building category which is maximum in demand/most favourite.
 
 ```{r }
@@ -82,7 +82,7 @@ ggplot(data = question1, aes(x = Year,
   xlab("Year") +
   ylab("Total count of Decision") 
 ```
->>>>>>> pranali_angne
+
 
 
 \section*{2}
