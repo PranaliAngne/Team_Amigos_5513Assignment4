@@ -12,7 +12,43 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 \section*{1}
+```{r}
+library(tidyverse)
+library(lubridate)
+```
 
+
+
+```{r Reading-data}
+question0 <-read_csv("data/building-approvals.csv")
+
+summary <- colnames(question0)
+
+knitr::kable(summary, col.names = gsub("[.]", " ", names(summary)), align = "c")
+```
+
+
+
+Above are the description of the variables used in the dataset.
++ *Date of decision notice*: The date the building certifier made a notice that the works met the building codes.
+
++ *Decision*: Current status of the works as recorded with Council.
+
++ *Class*: The building classification as per the list on page one.
+
++ *Sub-category (Council category descriptors)*: This category is a subdivision of class. Provides information regarding additions, alterations, subdwell etc in it.
+
++ *Category*: Townsville City Council has published on its website for a number of years a summary of building approval data using the certain categories.
+
++ *Estimated values*: The monetary value of the proposed building work.
+
++ *Suburb*: The suburb where the building work is taking place.
+
++ *Floor area*: The floor area of the building works in square metres.
+
++ *No. of units*: Number of individual units created or demolished by the building works.
+
++ *Electoral Division*: The local government electoral division in which the works are occurring.
 
 \section*{2}
 
