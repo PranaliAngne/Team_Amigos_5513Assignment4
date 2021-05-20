@@ -59,7 +59,30 @@ Above are the description of the variables used in the dataset.
 + *Electoral Division*: The local government electoral division in which the works are occurring.
 
 
+<<<<<<< HEAD
 
+=======
+# Q1: Which **Year** has maximum approvals regarding the building category which is maximum in demand/most favourite.
+
+```{r }
+question1 <- question0 %>% 
+  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`)) %>% 
+  select(Year, Decision) %>% 
+  count(Decision, Year) %>% 
+  rename(`Total number of Decision` = n)
+
+# plotting this graph
+ggplot(data = question1, aes(x = Year,
+                             y = `Total number of Decision`, 
+                             fill = Decision)) +
+  geom_bar(stat="identity", position = "dodge") +
+  scale_fill_brewer(palette="Dark2") +
+  theme_get() +
+  xlab("Year") +
+  ylab("Total count of Decision") 
+```
+>>>>>>> pranali_angne
 
 
 \section*{2}
