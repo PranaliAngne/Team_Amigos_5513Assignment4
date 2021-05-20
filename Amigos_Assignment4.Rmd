@@ -23,6 +23,7 @@ The objective of the report is to identify the year with maximum approvals and t
 ```{r}
 library(tidyverse)
 library(lubridate)
+library(ggplot2)
 ```
 
 
@@ -34,7 +35,6 @@ summary <- colnames(question0)
 
 knitr::kable(summary, col.names = gsub("[.]", " ", names(summary)), align = "c")
 ```
-
 
 
 Above are the description of the variables used in the dataset.
@@ -57,6 +57,10 @@ Above are the description of the variables used in the dataset.
 + *No. of units*: Number of individual units created or demolished by the building works.
 
 + *Electoral Division*: The local government electoral division in which the works are occurring.
+
+
+
+
 
 \section*{2}
 
