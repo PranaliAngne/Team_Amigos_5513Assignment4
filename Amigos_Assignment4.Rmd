@@ -103,13 +103,37 @@ Q2. Which category is most in demand/occurs maximum times in the year 2020?
 ```{r Filtering, message=FALSE, warning=FALSE,echo=FALSE}
 Filtered <- Sec2 %>%  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
         Year = year(`Date Of Decision Notice`)) %>% 
-  filter(Year == "2020") %>% 
-  count(Category)  %>% 
+  filter(Year == "2020")
+```
+
+```{r}
+Tab <- Filtered %>% count(Category)  %>% 
   rename(Count = n) %>% 
   arrange(desc(Count))
-knitr::kable(head(Filtered), caption = "Count of categories in 2020") %>% 
+knitr::kable(head(Tab), caption = "Count of categories in 2020") %>% 
    kable_paper("hover", full_width = T)
 ```
+
+Q3. Which is the suburb, where it costs the maximum for the category  "Residential-Other", in the year 2020?
+
+```{r, fig.height= 5, fig.width=5}
+Fig <- Filtered %>% 
+  filter(Category == "Residential - Other") %>% 
+  rename(Estimated_Cost = `Estimated Cost`) %>% 
+mutate(Estimated.Cost = as.factor(Estimated_Cost)) 
+  Fig$Estimated.Cost = as.numeric(gsub("[\\$,]", "", Fig$Estimated.Cost)) 
+  
+  ggplot(Fig,
+         aes(x= Estimated.Cost,
+             y= Suburb, fill= Category))+
+    geom_col() +
+    scale_x_continuous(labels = scales::comma)
+    
+```
+
+
+
+
 
 
 
