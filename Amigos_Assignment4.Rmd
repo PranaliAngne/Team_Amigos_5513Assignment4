@@ -24,5 +24,30 @@ The objective of the report is to identify the year with maximum approvals and t
 
 \section*{2}
 
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+library(readr)
+library(lubridate)
+library(kableExtra)
+```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+Sec2 <- read_csv("data/building-approvals.csv")
+```
+
+Q2. Which category is most in demand/occurs maximum times in the year 2020?
+
+```{r Filtering, message=FALSE, warning=FALSE,echo=FALSE}
+Filtered <- Sec2 %>%  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`)) %>% 
+  filter(Year == "2020") %>% 
+  count(Category)  %>% 
+  rename(Count = n) %>% 
+  arrange(desc(Count))
+knitr::kable(head(Filtered), caption = "Count of categories in 2020") %>% 
+   kable_paper("hover", full_width = T)
+```
+
+
 
 \section*{3}
