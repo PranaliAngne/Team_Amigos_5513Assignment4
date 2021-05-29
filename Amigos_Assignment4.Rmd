@@ -138,3 +138,16 @@ mutate(Estimated.Cost = as.factor(Estimated_Cost))
 
 
 \section*{3}
+
+## Answering **Research Question 2.**
+
+``` {r library, echo= FALSE, warning= FALSE, message = FALSE}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(kableExtra)
+library(readr)
+library(plotly)
+```
+
+
