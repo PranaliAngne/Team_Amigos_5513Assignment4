@@ -150,4 +150,7 @@ library(readr)
 library(plotly)
 ```
 
-
+```{r read, message=FALSE, warning=FALSE, echo=FALSE}
+Section3 <- read_csv("data/building-approvals.csv") %>%  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`))
+```
