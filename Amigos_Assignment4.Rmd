@@ -156,3 +156,15 @@ library(plotly)
 Section3 <- read_csv("data/building-approvals.csv") %>%  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
         Year = year(`Date Of Decision Notice`))
 ```
+
+```{r}
+suburb <- Filtered %>% 
+  filter(Year == "2020") %>% 
+  filter( Category == "Residential - Other") %>% 
+  select(Suburb, Decision, Category, Year ) %>% 
+  group_by(Suburb) %>% 
+count(Decision) %>% 
+  rename(Total_Approvals = n) %>% 
+  arrange(desc(Total_Approvals))
+```
+
