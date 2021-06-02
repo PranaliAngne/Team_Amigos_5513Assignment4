@@ -389,3 +389,22 @@ knitr::kable(head(tab6), caption = "Count of Class in Kirwan in 2021") %>%
 ```
 
 + From \@ref(tab:tab6) it is clear that **Class 10a** occurs for most no. of times for *approved projects* in *Kirwan* in *2021*.
+
+**Class 10a includes : Private garage, carport or shed**
+
+```{r tab7, echo=FALSE, warning=FALSE, message=FALSE}
+table2 <- Section3 %>% 
+  filter(Suburb == "Hermit Park", Decision == "#Approved", Year == "2020") 
+tab7 <- table2 %>% 
+  group_by(Year, Class, Suburb, Decision) %>% 
+  count(Class) %>% 
+  rename(Class_count = n) %>% 
+arrange(desc(Class_count))
+knitr::kable(head(tab7), caption = "Count of Class in Hermit Park in 2020") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "white", background = "#D7261E")
+```
+
++ From \@ref(tab:tab7) it is clear that **Class 1a** occurs for most no. of times for *approved projects* in *Hermit Park* in *2020*.
+
+Class 1a having maximum count matches with table \@ref(tab:tab2), where also, Class 1a had maximum count in 2020.
