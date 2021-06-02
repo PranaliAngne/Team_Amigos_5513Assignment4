@@ -20,11 +20,15 @@
 
 
 # Project Details
-- Name: Analyzing Building approvals data for Assignment 4 (ETC5513)
+- **Name**: Analyzing Building approvals data for the City of Townsville** (Assignment 4, ETC5513)
 
-- Objective: Answering research questions regarding Category, Class, Suburb, Cost and  Year for Building Approvals in the city of Townsville.
+- **Objective**: Answering research questions regarding Year, Approvals, Class, Category, Suburb and Estimated Cost for Building Approvals in the city of Townsville.
 
-- Date set used from : www.data.gov.au (Building approval information : Building certification lodgements in the Townsville local government area)
+- **Date set used** : 
+
+First data set i.e. the building approval details have been extracted from [here](https://data.gov.au/data/dataset/tcc-building-approvals) from the website [www.data.gov.au](https://data.gov.au). 
+
+And the second data set i.e. City of Townsville's Suburb geometry has been extracted from [here](https://data.gov.au/dataset/ds-dga-81cbbedc-e35f-4266-980d-21a6159b2404/distribution/dist-dga-28812258-4cf4-46aa-aa43-0206d7c60920/details?q=) from the website [www.data.gov.au](https://data.gov.au). 
 
 The Building Approvals data set produced by Townsville City Council contains information about most of the building work that has been approved in the Townsville local government area. This information is used by industry and government as a key economic indicator.
 
@@ -35,6 +39,10 @@ Technology used :
 - R version 4.0.5
 
 - GitHub
+
+- GitKraken
+
+- Atom
 
 To run the project :
 
@@ -52,15 +60,9 @@ Data location -> Data Folder in 'Team_Amigos_5513Assignment4' Repository
 
 # Goals of Assignment
 
-- The year with max approvals
+- To identify the year with maximum approvals and to analyze the data further to find out the suburb and estimate cost of building with respect to the most popular class in that year. And also find out the category that is most in demand for that class.
 
-- The category which occurs max number of times in that year.
-
-- The TOTAl estimated cost for all suburbs, for that particular category, in   that year.
-
-- The suburb that has max approvals for the above category in the above year.
-
-- The total estimated cost for ONLY that suburb for ONLY that above category.
+- To analyze the suburb which was inferred from research question 1 and find out the year for which it had the maximum approvals. Also find out the class that occurred maximum times, category with respect to that class and estimate cost for these particular variables.
 
 # Data set variables
 
@@ -83,6 +85,8 @@ Data location -> Data Folder in 'Team_Amigos_5513Assignment4' Repository
 - *No. of units*: Number of individual units created or demolished by the building works.
 
 - *Electoral Division*: The local government electoral division in which the works are occurring.
+
+- *Latitude and Longitude* : Geometrical Dimentions
 
 # Credits  :
 - Author1: "Pranali Angne"

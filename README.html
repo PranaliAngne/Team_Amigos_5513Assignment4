@@ -213,10 +213,12 @@ pre code {
 <div id="project-details" class="section level1">
 <h1>Project Details</h1>
 <ul>
-<li><p>Name: Analyzing Building approvals data for Assignment 4 (ETC5513)</p></li>
-<li><p>Objective: Answering research questions regarding Category, Suburb, Cost and Year for Building Approvals in the city of Townsville.</p></li>
-<li><p>Date set used from : www.data.gov.au (Building approval information : Building certification lodgements in the Townsville local government area)</p></li>
+<li><p><strong>Name</strong>: Analyzing Building approvals data for the City of Townsville** (Assignment 4, ETC5513)</p></li>
+<li><p><strong>Objective</strong>: Answering research questions regarding Year, Approvals, Class, Category, Suburb and Estimated Cost for Building Approvals in the city of Townsville.</p></li>
+<li><p><strong>Date set used</strong> :</p></li>
 </ul>
+<p>First data set i.e. the building approval details have been extracted from <a href="https://data.gov.au/data/dataset/tcc-building-approvals">here</a> from the website <a href="https://data.gov.au">www.data.gov.au</a>.</p>
+<p>And the second data set i.e. City of Townsville’s Suburb geometry has been extracted from <a href="https://data.gov.au/dataset/ds-dga-81cbbedc-e35f-4266-980d-21a6159b2404/distribution/dist-dga-28812258-4cf4-46aa-aa43-0206d7c60920/details?q=">here</a> from the website <a href="https://data.gov.au">www.data.gov.au</a>.</p>
 <p>The Building Approvals data set produced by Townsville City Council contains information about most of the building work that has been approved in the Townsville local government area. This information is used by industry and government as a key economic indicator.</p>
 </div>
 <div id="project-details-for-producing-reproducible-report" class="section level1">
@@ -225,6 +227,8 @@ pre code {
 <ul>
 <li><p>R version 4.0.5</p></li>
 <li><p>GitHub</p></li>
+<li><p>GitKraken</p></li>
+<li><p>Atom</p></li>
 </ul>
 <p>To run the project :</p>
 <ul>
@@ -239,11 +243,8 @@ pre code {
 <div id="goals-of-assignment" class="section level1">
 <h1>Goals of Assignment</h1>
 <ul>
-<li><p>The year with max approvals</p></li>
-<li><p>The category which occurs max number of times in that year.</p></li>
-<li><p>The TOTAl estimated cost for all suburbs, for that particular category, in that year.</p></li>
-<li><p>The suburb that has max approvals for the above category in the above year.</p></li>
-<li><p>The total estimated cost for ONLY that suburb for ONLY that above category.</p></li>
+<li><p>To identify the year with maximum approvals and to analyze the data further to find out the suburb and estimate cost of building with respect to the most popular class in that year. And also find out the category that is most in demand for that class.</p></li>
+<li><p>To analyze the suburb which was inferred from research question 1 and find out the year for which it had the maximum approvals. Also find out the class that occurred maximum times, category with respect to that class and estimate cost for these particular variables.</p></li>
 </ul>
 </div>
 <div id="data-set-variables" class="section level1">
@@ -259,6 +260,7 @@ pre code {
 <li><p><em>Floor area</em>: The floor area of the building works in square metres.</p></li>
 <li><p><em>No. of units</em>: Number of individual units created or demolished by the building works.</p></li>
 <li><p><em>Electoral Division</em>: The local government electoral division in which the works are occurring.</p></li>
+<li><p><em>Latitude and Longitude</em> : Geometrical Dimentions</p></li>
 </ul>
 </div>
 <div id="credits" class="section level1">
