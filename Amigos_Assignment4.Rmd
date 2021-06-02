@@ -657,7 +657,7 @@ Figure (flowchart) \@ref(fig:fig9) displays the reverse analysis for result 1, f
 + We can say that, for research question 2, Part B:
 **the reverse Analysis for result 1 has been successful** 
 
-### Final Result
+## Final Result
 
 + Although, out of the approvals that took place in the year 2020 (best year with maximum approvals), maximum approvals were of Kirwan, but **this has not been the case vice-versa** and hence there is not much similarity between result 1 and result 2(PartA).
 
