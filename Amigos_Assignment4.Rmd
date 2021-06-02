@@ -1,25 +1,47 @@
 ---
-title: "Amigos_Assignment4"
-author: "Pranali Angne"
-author: "Nishtha Arora"
-author: "Raunak Bhivpathaki"
-date: "5/18/2021"
-output: html_document
+title: "Analyzing Building approvals data for the City of Townsville"
+author: "Pranali Angne, Nishtha Arora, Raunak Bhivpathaki"
+date: "`r lubridate::today()`"
+abstract: |
+ The Building Approvals data set produced by Townsville City Council contains information about most of the building work that has been approved in the Townsville local government area. This information is used by industry and government as a key economic indicator.
+ <br><br><br>
+output:
+    bookdown::html_document2:
+        base_format: prettydoc::html_pretty
+        keep_md: yes
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 # Introduction
 
-We have used 2 datasets for this analysis.
+The analysis in the report is regarding **building certification lodgements** in the Townsville local government area. **Townsville is a city and a major port area in eastern Queensland, Australia.** Two data sets have been combined and used for the analysis from the  [www.data.gov.au](https://data.gov.au) website. 
 
-The data used in the report is regarding building certification lodgements in the Townsville local government area. Townsville is a city and a major port area in eastern Queensland, Australia. The data set been extracted from [www.data.gov.au](https://data.gov.au/data/dataset/tcc-building-approvals). 
+First data set i.e. the building approval details have been extracted from [here](https://data.gov.au/data/dataset/tcc-building-approvals) ("Townsville City Council Building Approvals - data.gov.au", 2021) and includes number of building approvals from 2009 to 2021 and their corresponding details e.g. Decision, Class, Suburb etc. And the second data set i.e. City of Townsville's Suburb geometry has been extracted from [here](https://data.gov.au/dataset/ds-dga-81cbbedc-e35f-4266-980d-21a6159b2404/distribution/dist-dga-28812258-4cf4-46aa-aa43-0206d7c60920/details?q=) ("Townsville Suburbs - data.gov.au.", 2021) and includes the geometrical values for these Suburbs.
 
-This data set includes number of building approvals from 2009 to 2021 and can be aggregated by month, suburb and local government electoral division.  
+This report has been complied using R Studio ("RStudio Team", 2020), [Github](https://github.com/PranaliAngne/Team_Amigos_5513Assignment4) ("GitHub: Where the world builds software", 2021), Gitkraken("GitKraken Documentation", 2021) and Atom("A hackable text editor for the 21st Century", 2021).
 
-The objective of the report is to identify the year with maximum approvals and to analyze data regarding the building category maximum in demand i.e. the Suburb and total cost for that category.
+**Project Details**
+
+- Name: **Analyzing Building approvals data for the City of Townsville** (Assignment 4, ETC5513)
+
+- Objective: Answering research questions regarding Year, Approvals, Class, Category, Suburb and Estimated Cost for Building Approvals in the city of Townsville.
+
+**Research Questions**
+
+1. To identify the year with maximum approvals and to analyze the data further to find out the suburb and estimate cost of building with respect to the most popular class in that year. And also find out the category that is most in demand for that class.
+
+2. To analyze the suburb which was inferred from research question 1 and find out the year for which it had the maximum approvals. Also find out the class that occurred maximum times, category with respect to that class and estimate cost for these particular variables.
+
+```{r image, echo = F, out.width= "40%", fig.align='center'}
+knitr::include_graphics("images/CTV.jpg")
+```
+
+# Analysis
+
+(Please use **plotly** (*Click on the figure/table to active plotly*) to hover through the figures/tables and maps for better understanding of the analysis)
 
 \section*{1}
 ```{r}
@@ -84,8 +106,6 @@ ggplot(data = question1, aes(x = Year,
   xlab("Year") +
   ylab("Total count of Decision") 
 ```
-
-
 
 \section*{2}
 

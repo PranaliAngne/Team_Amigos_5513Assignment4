@@ -22,7 +22,7 @@
 # Project Details
 - Name: Analyzing Building approvals data for Assignment 4 (ETC5513)
 
-- Objective: Answering research questions regarding Category, Suburb, Cost and  Year for Building Approvals in the city of Townsville.
+- Objective: Answering research questions regarding Category, Class, Suburb, Cost and  Year for Building Approvals in the city of Townsville.
 
 - Date set used from : www.data.gov.au (Building approval information : Building certification lodgements in the Townsville local government area)
 
