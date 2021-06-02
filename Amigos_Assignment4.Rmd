@@ -323,7 +323,6 @@ knitr::kable(head(s), caption = "Total estimated cost for research question 1") 
 
 
 
-<<<<<<< HEAD
 
 \section*{Q2, Part A} 
 
@@ -533,8 +532,6 @@ Table \@ref(tab:tab9) displays the cost for Hermit Park in best year 2020. And *
 
 + And from \@ref(tab:tab9), we know that the **total cost** for suburb *Hermit Park* for *class 1a* *approved* projects(*Residential-Other* category) in *2021* is **$1,074,668**.
 
-=======
-\section*{3}
 
 \section*{Conclusion}
 ```{r conc-lib, echo= FALSE, warning= FALSE, message = FALSE}
@@ -590,4 +587,5 @@ Figure (flowchart) \@ref(fig:fig7) depicts the step-wise-step results for resear
 + We observed that the end product of result 1 gives us two suburbs with maximum residential category in class 1a for approved projects in the year 2020.
 
 + Further we carried out a **reverse analysis** for the resulting suburbs in question 1 i.e. for *Kirwan* and *Hermit Park*.
->>>>>>> nishtha_arora
+
+
