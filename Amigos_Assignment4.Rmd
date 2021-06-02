@@ -485,3 +485,50 @@ The figure \@ref(fig:fig6) displays two polar graphs with category count in Kirw
 
 + It is evident from both the graphs that the **Residential-Other** category for *approved projects*, is in demand for *both suburbs* and *both classes* in their respective *years*.
 
+
+### Estimated **cost(x)** for research question 2.
+
+*(Keeping, 'Decision as Approved', 'Category as Residential-Other','Suburbs as Kirwan   and Hermit Park',constant.*
+*Keeping 'Year as 2021' and 'Class as 10a' constant for Kirwan.*
+*Keeping 'Year as 2020' and 'Class as 1a' constant for Hermit Park.)*
+
+```{r kirwan-filter, message=FALSE, warning=FALSE,echo=FALSE}
+Ecost <- catK %>% 
+  rename(Estimated_Cost = `Estimated Cost`) %>% 
+mutate(Estimated.Cost = as.factor(Estimated_Cost)) 
+  Ecost$Estimated.Cost = as.numeric(gsub("[\\$,]", "", Ecost$Estimated.Cost)) 
+```
+
+```{r tab8, message=FALSE, warning=FALSE,echo=FALSE}
+Kcost <- Ecost %>% 
+    filter(Category == "Residential - Other") 
+Ksum <- sum(Kcost$Estimated.Cost) 
+    knitr::kable(head(Ksum), caption = "Total estimated cost for research question 2 (Kirwan)") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "black", background = "white")
+```
+
+Table \@ref(tab:tab8) displays the cost for Kirwan in 2021.
+
+```{r hp-filter, message=FALSE, warning=FALSE,echo=FALSE}
+Ecosthp <- catHP %>% 
+  rename(Estimated_Cost = `Estimated Cost`) %>% 
+mutate(Estimated.Cost = as.factor(Estimated_Cost)) 
+  Ecosthp$Estimated.Cost = as.numeric(gsub("[\\$,]", "", Ecosthp$Estimated.Cost)) 
+```
+
+```{r tab9, message=FALSE, warning=FALSE,echo=FALSE}
+HPcost <- Ecosthp %>% 
+    filter(Category == "Residential - Other") 
+HPsum <- sum(HPcost$Estimated.Cost) 
+    knitr::kable(head(HPsum), caption = "Total estimated cost for research question 2 (Hermit Park)") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "black", background = "#87CEEB")
+```
+
+Table \@ref(tab:tab9) displays the cost for Hermit Park in best year 2020. And **this observation is similar to table \@ref(tab:tab4).**
+
++ Therefore by observing table \@ref(tab:tab8), we know that the **total cost** for suburb *Kirwan* for *class 10a* *approved* projects(*Residential-Other* category) in *2020* is **$511,371**.
+
++ And from \@ref(tab:tab9), we know that the **total cost** for suburb *Hermit Park* for *class 1a* *approved* projects(*Residential-Other* category) in *2021* is **$1,074,668**.
+
