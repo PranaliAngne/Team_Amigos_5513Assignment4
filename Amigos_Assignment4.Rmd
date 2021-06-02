@@ -137,7 +137,8 @@ mutate(Estimated.Cost = as.factor(Estimated_Cost))
 
 
 
-\section*{3}
+
+\section*{Q2, Part A} 
 
 ## Answering **Research Question 2.**
 
@@ -148,6 +149,8 @@ library(ggplot2)
 library(kableExtra)
 library(readr)
 library(plotly)
+library(RColorBrewer)
+library(wesanderson)
 ```
 
 ```{r read, message=FALSE, warning=FALSE, echo=FALSE}
@@ -155,14 +158,28 @@ Section3 <- read_csv("data/building-approvals.csv") %>%  mutate(`Date Of Decisio
         Year = year(`Date Of Decision Notice`))
 ```
 
-```{r}
-suburb <- Filtered %>% 
-  filter(Year == "2020") %>% 
-  filter( Category == "Residential - Other") %>% 
-  select(Suburb, Decision, Category, Year ) %>% 
-  group_by(Suburb) %>% 
-count(Decision) %>% 
-  rename(Total_Approvals = n) %>% 
-  arrange(desc(Total_Approvals))
+### Finding the **Year** for **maximum approvals** in **Kirwan** and **Hermit Park**.
+
+*(Keeping, 'Decision as Approved' and 'Suburbs as Kirwan and Hermit Park', constant)*
+
+```{r fig5, echo= FALSE, warning= FALSE, message = FALSE, fig.cap= "Year v/s Approval Count with respect to Suburbs", fig.align='center', fig.height= 5, fig.width= 9}
+plot <- Section3 %>% 
+  filter(Suburb %in% c("Kirwan" , "Hermit Park")) %>% 
+  filter(Decision %in% c("#Approved")) %>% 
+   group_by(Year, Decision, Suburb) %>% 
+  count(Decision) %>% 
+  rename(Decision_count = n)
+
+Fig <- ggplot(data = plot, aes(x = Year,
+                             y = Decision_count, 
+                             fill = Suburb)) +
+  geom_bar(stat="identity", position = "dodge") +
+scale_fill_manual(values = wes_palette("GrandBudapest1", n = 2))+
+  theme_minimal() +
+  xlab("Year") +
+  ylab("Approval Count") 
+
+ggplotly(Fig)
 ```
 
++ From \@ref(fig:fig5), it is evident that for **Kirwan**, the **maximum approvals** occurred in **2021** and for **Hermit Park**, the year was **2020**.
