@@ -588,4 +588,77 @@ Figure (flowchart) \@ref(fig:fig7) depicts the step-wise-step results for resear
 
 + Further we carried out a **reverse analysis** for the resulting suburbs in question 1 i.e. for *Kirwan* and *Hermit Park*.
 
+## Result 2: 
 
+### The result for the **research question 2, Part A** *(Reverse analysis for Kirwan)* is depicted below:
+
+```{r fig8, fig.width=9, fig.height=4, echo= FALSE, warning= FALSE, message = FALSE, fig.cap="Result 2, Part A Flowchart", fig.align='center'}
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+     
+      # edge definitions with the node IDs
+      tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+      }
+
+      [1]: 'KIRWAN Suburb'
+      [2]: 'Maximum Approvals in: 2021'
+      [3]: 'Maximum Projects: Class 10a'
+      [4]: 'Belonging to: RESIDENTIAL - OTHER category'
+      [5]: 'Estimated Cost: $511,371'
+      
+      ")
+```
+
+Figure (flowchart) \@ref(fig:fig8) displays the reverse analysis for result 1, for Kirwan Suburb. 
+
++ Here, we observe that, only the **Residential-Other** category is common between flowchart \@ref(fig:fig7) and flowchart \@ref(fig:fig8) i.e. in our best year 2020, Residential category was maximum and the same is in the case of Kirwan.
+
++ Hence, we can say that, for research question 2, Part A:
+**Since the year 2021 has not ended, there is a possibility that for research question 1, maximum approvals happen in 2021, instead of 2020, making 2021 as the best year.**
+And then further by doing reverse analysis from the results of research question 1 , we might get a similar flowchart for both Result 1 and Result 2 (Part A)
+
+### The result for the **research question 2, Part B** *(Reverse analysis for Hermit Park)* is depicted below:
+
+```{r fig9, fig.width=9, fig.height=4, echo= FALSE, warning= FALSE, message = FALSE, fig.cap="Result 2, Part B Flowchart", fig.align='center'}
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+     
+
+      # edge definitions with the node IDs
+      tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+      }
+
+      [1]: 'HERMIT PARK Suburb'
+      [2]: 'Maximum Approvals in: 2020'
+      [3]: 'Maximum Projects: Class 1a'
+      [4]: 'Belonging to: RESIDENTIAL - OTHER category'
+      [5]: 'Estimated Cost: $1,074,668'
+      
+      ")
+
+```
+
+Figure (flowchart) \@ref(fig:fig9) displays the reverse analysis for result 1, for Hermit Park Suburb.
+
++ Here, we observe that, **all** the components for *Hermit Park* are **common** between flowchart \@ref(fig:fig7) and flowchart \@ref(fig:fig9). In both the flowcharts, best (maximum approvals) year **2020**, project **Class 1a**, category **residential-other** and cost **$1,074,668** are common.
+
++ We can say that, for research question 2, Part B:
+**the reverse Analysis for result 1 has been successful** 
+
+### Final Result
+
++ Although, out of the approvals that took place in the year 2020 (best year with maximum approvals), maximum approvals were of Kirwan, but **this has not been the case vice-versa** and hence there is not much similarity between result 1 and result 2(PartA).
+
++ For result 1 and result 2(Part B), both the **flowcharts are depicting the reverse of each other**, giving the same information.
