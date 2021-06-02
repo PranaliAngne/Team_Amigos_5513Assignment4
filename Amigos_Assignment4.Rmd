@@ -22,51 +22,56 @@ The objective of the report is to identify the year with maximum approvals and t
 \section*{1}
 
 
-\section*{2}
+\section*{Q1, Part B}
 
-```{r, message=FALSE, warning=FALSE, echo=FALSE}
+``` {r libraries, echo= FALSE, warning= FALSE, message = FALSE}
 library(tidyverse)
-library(readr)
 library(lubridate)
+library(ggplot2)
 library(kableExtra)
+library(readr)
+library(RColorBrewer)
+library(randomcoloR)
+library(plotly)
+library(gapminder)
 ```
 
-```{r, message=FALSE, warning=FALSE, echo=FALSE}
-Sec2 <- read_csv("data/building-approvals.csv")
+```{r reading_data, message=FALSE, warning=FALSE,echo=FALSE}
+sec2 <-read_csv("data/building-approvals.csv") %>% 
+  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`)) 
 ```
 
-Q2. Which category is most in demand/occurs maximum times in the year 2020?
+### Finding **category** with maximum counts in Class 1a (approved projects), in 2020.
 
-```{r Filtering, message=FALSE, warning=FALSE,echo=FALSE}
-Filtered <- Sec2 %>%  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
-        Year = year(`Date Of Decision Notice`)) %>% 
-  filter(Year == "2020")
+*(Keeping, 'Decision as Approved' and 'Class as 1a', constant and showing variation for years and identifying category count for 'Year 2020')*
+
+```{r filtering, message=FALSE, warning=FALSE,echo=FALSE}
+Filtered <- sec2 %>%  
+  filter(Class == "Class 1a", Decision == "#Approved")
+grouping <- Filtered %>% 
+    group_by(Category, Year) %>% 
+  count(Category) %>% 
+  rename(Count =n)
 ```
 
-```{r}
-Tab <- Filtered %>% count(Category)  %>% 
-  rename(Count = n) %>% 
-  arrange(desc(Count))
-knitr::kable(head(Tab), caption = "Count of categories in 2020") %>% 
-   kable_paper("hover", full_width = T)
+```{r fig3, message=FALSE,warning=FALSE,echo=FALSE, fig.cap="Count v/s Category", fig.height= 5, fig.width=10, fig.align='center'}
+df <- grouping
+fig <- df %>%
+  plot_ly(
+    x = ~Category, 
+    y = ~Count, 
+    color = ~Category, 
+    frame = ~Year, 
+    type = 'scatter',
+    mode = 'markers'
+  )
+fig
 ```
 
-Q3. Which is the suburb, where it costs the maximum for the category  "Residential-Other", in the year 2020?
+In figure \@ref(fig:fig3), by clicking on *play*, we observe that for half the years in the data set, *Residential-Other* category has been on the top and for the other half, *Single Detached Dwelling-New* has been in demand.
 
-```{r, fig.height= 5, fig.width=5}
-Fig <- Filtered %>% 
-  filter(Category == "Residential - Other") %>% 
-  rename(Estimated_Cost = `Estimated Cost`) %>% 
-mutate(Estimated.Cost = as.factor(Estimated_Cost)) 
-  Fig$Estimated.Cost = as.numeric(gsub("[\\$,]", "", Fig$Estimated.Cost)) 
-  
-  ggplot(Fig,
-         aes(x= Estimated.Cost,
-             y= Suburb, fill= Category))+
-    geom_col() +
-    scale_x_continuous(labels = scales::comma)
-    
-```
++ Identifying for the year 2020, we see that out of *Class 1a*, **Residential-Other** category is most in demand out of *approved projects* in the year *2020*.
 
 
 
