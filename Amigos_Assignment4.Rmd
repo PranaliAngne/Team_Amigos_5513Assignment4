@@ -157,3 +157,76 @@ From figure \@ref(fig:plot2) and table \@ref(tab:tab2), we were able to find out
 
 
 \section*{3}
+
+
+\section*{Q2, Part B}
+
+``` {r load-lib, echo= FALSE, warning= FALSE, message = FALSE}
+library(tidyverse)
+library(lubridate)
+library(ggplot2)
+library(kableExtra)
+library(readr)
+library(RColorBrewer)
+library(randomcoloR)
+library(plotly)
+library(gapminder)
+```
+
+```{r read-data, message=FALSE, warning=FALSE,echo=FALSE}
+sec4 <-read_csv("data/building-approvals.csv") %>% 
+  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`)) 
+```
+
+### Out of *Class 10a* and *Class 1a*, finding **category** that is most in demand for *approved projects* in *Kirwan(2020)* and *Hermit Park(2021)* respectively.
+
+*(Keeping, 'Decision as Approved','Suburbs as Kirwan and Hermit Park',constant.*
+ *Keeping 'Year as 2021' and 'Class as 10a' constant for Kirwan.*
+ *Keeping 'Year as 2020' and 'Class as 1a' constant for Hermit Park.)*
+
+```{r filter-kirwan, message=FALSE, warning=FALSE,echo=FALSE}
+catK <- sec4 %>% 
+    filter(Year == "2021", Decision == "#Approved", Suburb == "Kirwan", Class == "Class 10a") 
+K <- catK %>% 
+  group_by(Year,Class,Decision,Suburb,Category) %>% 
+  count(Category) %>% 
+rename(Category_count = n)
+
+```
+
+```{r filter-hp, message=FALSE, warning=FALSE,echo=FALSE}
+catHP <- sec4 %>% 
+    filter(Year == "2020", Class == "Class 1a", Decision == "#Approved", Suburb == "Hermit Park")
+HP <- catHP %>% 
+    group_by(Year,Class,Decision,Suburb,Category) %>% 
+  count(Category) %>% 
+rename(Category_count = n)
+```
+
+```{r colour, message=FALSE, warning=FALSE,echo=FALSE}
+c6 <- c(
+  "dodgerblue2", "darkturquoise", "green1",  "green4", "#6A3D9A",  "#FF7F00", "black")
+```
+
+```{r fig6,  fig.cap= "Count of Categories for their respective Suburbs and Class", fig.show="hold", out.width="50%", message=FALSE, warning=FALSE,echo=FALSE, fig.align='center'}
+ggplot(K,
+       aes(y = Category_count, x = Class, fill = Category)) +
+  geom_col() +
+ coord_polar() +
+  scale_fill_manual(values = c6) +
+  ggtitle("For 'Kirwan' in Class 10a (2021).") +
+theme(axis.text = element_blank())
+
+ggplot(HP,
+       aes(y = Category_count, x = Class, fill = Category)) +
+  geom_col() +
+ coord_polar() +
+  scale_fill_manual(values = c6) +
+  ggtitle("For 'Hermit Park' in Class 1a (2020).")+
+theme(axis.text = element_blank())
+```
+
+The figure \@ref(fig:fig6) displays two polar graphs with category count in Kirwan(left) and category count in Hermit Park(right).
+
++ It is evident from both the graphs that the **Residential-Other** category for *approved projects*, is in demand for *both suburbs* and *both classes* in their respective *years*.
