@@ -76,6 +76,41 @@ For table \@ref(tab:tab1), the **description of the variables** used in the data
 
 + **Latitude and Longitude**: Geometrical dimensions. 
 
+## Answering **Research Question 1.**
+
+### Finding **Year** with **maximum approvals** as a decision, overall.
+
+```{r graph1, echo= FALSE, warning= FALSE, message = FALSE, fig.height= 5, fig.width=9, fig.cap= "Year v/s Decision count", fig.pos='H', fig.align='center'}
+question1 <- question0 %>% 
+  mutate(`Date Of Decision Notice` = dmy(`Date Of Decision Notice`),
+        Year = year(`Date Of Decision Notice`))
+
+question1.1 <- question1 %>% 
+  select(Year, Decision) %>% 
+  count(Decision, Year) %>% 
+  rename(`Total number of Decision` = n)
+
+# plotting this graph
+graph1 <- ggplot(data = question1.1, aes(x = Year,
+                             y = `Total number of Decision`, 
+                             fill = Decision)) +
+  geom_bar(stat="identity", position = "dodge") +
+  scale_fill_brewer(palette="Dark2")+
+  theme(plot.title = element_text(hjust = 0.5))+
+  theme_get() +
+  xlab("Year") +
+  ylab("Total count of Decision") 
+
+ggplotly(graph1)
+```
+
+From the graph \@ref(fig:graph1), we see that, **finalized projects have maximum count**, but we will **consider the count of approved projects** into consideration because: 
+
+Finalized projects are projects sent by architects to be approved by the regulation committee and the approved projects are the **confirmed** projects. Thus, it makes more sense to consider approved projects over finalized while deciding the **best year**.
+
++ The year **2020** has maximum **approvals** till now.
+
+
 
 
 
