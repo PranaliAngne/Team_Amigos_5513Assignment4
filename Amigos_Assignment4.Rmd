@@ -271,6 +271,51 @@ Figure \@ref(fig:fig4) shows that suburbs *Kirwan* and *Hermit Park* have the ma
 
 + Therefore, the suburbs **Kirwan** and **Hermit Park**, have most no. of *class 1a*'s with category as *Residential-Other* in *approved projects* for *2020*.
 
+### Estimated **cost(x)** for research question 1.
+
+By *(Keeping, 'Year as 2020'. 'Decision as Approved', 'Class as 1a' and 'Category as Residential-Other', constant)*
+
+```{r estimated-cost, echo= FALSE, warning= FALSE, message = FALSE}
+cost <- sec2 %>% 
+    filter(Year == "2020", Class == "Class 1a", Decision == "#Approved", Category == "Residential - Other") %>% 
+  rename(Estimated_Cost = `Estimated Cost`) %>% 
+mutate(Estimated.Cost = as.factor(Estimated_Cost)) 
+  cost$Estimated.Cost = as.numeric(gsub("[\\$,]", "", cost$Estimated.Cost)) 
+```
+
+
+```{r tab3, echo= FALSE, warning= FALSE, message = FALSE}
+kirwan <- cost %>% 
+  filter(Suburb == "Kirwan") 
+k <- sum(kirwan$Estimated.Cost)
+knitr::kable(head(k), caption = "Estimated cost for Kirwan") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "black", background = "white")
+```
+
+Table \@ref(tab:tab3) displays the cost for Kirwan in best year 2020.
+
+```{r tab4, echo= FALSE, warning= FALSE, message = FALSE}
+hermit_park <- cost %>% 
+  filter(Suburb == "Hermit Park") 
+hp <- sum(hermit_park$Estimated.Cost)
+knitr::kable(head(hp), caption = "Estimated cost for Hermit Park") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "black", background = "#87CEEB")
+```
+
+Table \@ref(tab:tab4) displays the cost for Hermit Park in best year 2020.
+
+```{r tab5, echo= FALSE, warning= FALSE, message = FALSE}
+s <- sum(k,hp)
+knitr::kable(head(s), caption = "Total estimated cost for research question 1") %>% 
+   kable_paper("hover") %>% 
+  row_spec(1, bold = T, color = "black", background = "yellow")
+```
+
++ Therefore by observing table \@ref(tab:tab5), we know that the **total cost** for suburbs *Kirwan* and *Hermit Park*'s *class 1a* *approved* projects(*Residential-Other* category) in *2020* is **$2,068,312**
+
+
 
 
 
