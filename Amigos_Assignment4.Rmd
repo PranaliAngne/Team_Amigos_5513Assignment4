@@ -216,3 +216,38 @@ Figure (flowchart) \@ref(fig:fig7) depicts the step-wise-step results for resear
 + We observed that the end product of result 1 gives us two suburbs with maximum residential category in class 1a for approved projects in the year 2020.
 
 + Further we carried out a **reverse analysis** for the resulting suburbs in question 1 i.e. for *Kirwan* and *Hermit Park*.
+
+## Result 2: 
+
+### The result for the **research question 2, Part A** *(Reverse analysis for Kirwan)* is depicted below:
+
+```{r fig8, fig.width=9, fig.height=4, echo= FALSE, warning= FALSE, message = FALSE, fig.cap="Result 2, Part A Flowchart", fig.align='center'}
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+     
+      # edge definitions with the node IDs
+      tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+      }
+
+      [1]: 'KIRWAN Suburb'
+      [2]: 'Maximum Approvals in: 2021'
+      [3]: 'Maximum Projects: Class 10a'
+      [4]: 'Belonging to: RESIDENTIAL - OTHER category'
+      [5]: 'Estimated Cost: $511,371'
+      
+      ")
+```
+
+Figure (flowchart) \@ref(fig:fig8) displays the reverse analysis for result 1, for Kirwan Suburb. 
+
++ Here, we observe that, only the **Residential-Other** category is common between flowchart \@ref(fig:fig7) and flowchart \@ref(fig:fig8) i.e. in our best year 2020, Residential category was maximum and the same is in the case of Kirwan.
+
++ Hence, we can say that, for research question 2, Part A:
+**Since the year 2021 has not ended, there is a possibility that for research question 1, maximum approvals happen in 2021, instead of 2020, making 2021 as the best year.**
+And then further by doing reverse analysis from the results of research question 1 , we might get a similar flowchart for both Result 1 and Result 2 (Part A)
