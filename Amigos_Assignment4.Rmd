@@ -161,3 +161,58 @@ knitr::kable(head(s), caption = "Total estimated cost for research question 1") 
 
 
 \section*{3}
+
+\section*{Conclusion}
+```{r conc-lib, echo= FALSE, warning= FALSE, message = FALSE}
+library(DiagrammeR)
+```
+
+# Conclusion :
+
+## Result 1: 
+
+### The result for the **first research question** is depicted below:
+
+```{r fig7, fig.width=9, fig.height=5, echo= FALSE, warning= FALSE, message = FALSE, fig.cap="Result 1 Flowchart", fig.align='center'}
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+      tab6 [label = '@@6']
+      tab7 [label = '@@7']
+      tab8 [label = '@@8']
+      tab9 [label = '@@9']
+
+      # edge definitions with the node IDs
+      tab1 -> tab2 ;
+      tab2 -> tab3;
+      tab3 -> tab4;
+      tab4 -> tab5;
+      tab4 -> tab6;
+      tab5 -> tab7;
+      tab6 -> tab8;
+      tab7 -> tab9;
+      tab8 -> tab9;
+      }
+
+      [1]: 'Maximum APPROVALS'
+      [2]: 'Year of 2020'
+      [3]: 'Maximum Projects : Class 1A'
+      [4]: 'Belonging to: RESIDENTIAL - OTHER category'
+      [5]: 'Maximum Projects at : KIRWAN Suburb'
+      [6]: 'Maximum Projects at : HERMIT PARK Suburb'
+      [7]: 'Estimated Cost: $993,644'
+      [8]: 'Estimated Cost: $1,074,668'
+      [9]: 'Total Cost: $2,068,312'
+      ")
+```
+
+Figure (flowchart) \@ref(fig:fig7) depicts the step-wise-step results for research question 1.
+
++ We observed that the end product of result 1 gives us two suburbs with maximum residential category in class 1a for approved projects in the year 2020.
+
++ Further we carried out a **reverse analysis** for the resulting suburbs in question 1 i.e. for *Kirwan* and *Hermit Park*.
