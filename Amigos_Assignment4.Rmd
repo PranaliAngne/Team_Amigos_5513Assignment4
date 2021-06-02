@@ -110,7 +110,44 @@ Finalized projects are projects sent by architects to be approved by the regulat
 
 + The year **2020** has maximum **approvals** till now.
 
+### Finding **class** occuring in maximum suburbs and finding its total count, for approved projects in 2020.
 
+*(Keeping, 'Year as 2020' and 'Decision as Approved', constant)*
+
+```{r class, message=FALSE,echo=FALSE,warning=FALSE}
+question2 <- question1 %>% 
+  filter(Decision %in% c("#Approved"),
+         Year=="2020")
+```
+
+```{r plot2, fig.cap= "Distribution of class in Townsville's subrub area's", message=FALSE,warning=FALSE,echo=FALSE, fig.height= 5, fig.width=8, fig.align='center'}
+map <- qmplot(Longitude, Latitude, data = question2 , size = I(1.5), darken = .3, fill= Class) 
+ggplotly(map)
+```
+
+In figure (map) \@ref(fig:plot2), using *plotly*, we observe that **Class 1a** occurs in maximum suburbs.
+
+```{r tab2, echo= FALSE, warning= FALSE, message = FALSE}
+question2.1 <- question2 %>% 
+  select(Year, Class) %>% 
+  group_by(Year, Class) %>% 
+  count(Class) %>% 
+  rename(Count_of_Class = n) %>% 
+  arrange(desc(Count_of_Class))
+knitr::kable(head(question2.1), caption = "Count of class for approved projects") %>% 
+   kable_paper("hover", full_width = T) %>% 
+  row_spec(1, bold = T, color = "white", background = "#D7261E")
+```
+
+Table \@ref(tab:tab2) gives us the total count of Class 1a. It shows that **Class 1a** has the **maximum count** out of all the other classes.
+
+**Class 1a includes :Single dwelling, detached house, town house or villa unit.**
+
+From figure \@ref(fig:plot2) and table \@ref(tab:tab2), we were able to find out that the class 1a occurs in most suburbs. Each suburbs can have *multiple class 1a projects*.
+
++ Not only does it occur in most of the suburbs, but also these projects have a maximum count among all other projects.
+
++ Therefore, **Class 1a** occurs for most areas and maximum no. of times for *approved projects* in the year *2020*.
 
 
 
