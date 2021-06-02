@@ -73,6 +73,42 @@ In figure \@ref(fig:fig3), by clicking on *play*, we observe that for half the y
 
 + Identifying for the year 2020, we see that out of *Class 1a*, **Residential-Other** category is most in demand out of *approved projects* in the year *2020*.
 
+### Finding **Suburb** for Residential category (Class 1a), approved projects in 2020.
+
+*(Keeping, 'Year as 2020'. 'Decision as Approved', 'Class as 1a' and 'Category as Residential-Other', constant)*
+
+```{r colours, echo= FALSE, warning= FALSE, message = FALSE}
+ c50 <- c(
+  "dodgerblue2", "#E31A1C",  "green4", "#6A3D9A",  "#FF7F00", "black", "gold1", "skyblue2", "#FB9A99", "palegreen2", "#CAB2D6", "#FDBF6F","gray70", "khaki2", "maroon", "orchid1", "deeppink1", "blue1", "steelblue4",
+  "darkturquoise", "green1", "yellow4", "yellow3", "darkorange4", "brown", "pink1", "violet", "mediumpurple1", "slateblue1", "purple", "purple3",
+"turquoise2", "skyblue", "steelblue", "blue2", "navyblue", "orange", "tomato", "coral2", "palevioletred", "violetred", "red2","springgreen2", "yellowgreen", "palegreen4", "wheat2", "tan", "tan2", "tan3", "brown",
+ "grey70", "grey50", "grey30"
+)
+```
+
+```{r fig4, message=FALSE, warning=FALSE, echo=FALSE, fig.width=10, fig.height=5, fig.cap= "Suburb v/s Approval Count", fig.align='center'}
+polar <- Filtered %>% 
+  filter(Year == "2020") %>% 
+  filter( Category == "Residential - Other") %>% 
+  select(Suburb, Decision, Category, Year ) %>% 
+  group_by(Suburb) %>% 
+count(Decision) %>% 
+  rename(Total_Approvals = n) %>% 
+  arrange(desc(Total_Approvals))
+
+ggplot(polar,
+       aes(y = Total_Approvals, x = Suburb, fill = Suburb)) +
+  geom_col() +
+ coord_polar() +
+scale_fill_manual(values = c50) +
+theme(axis.text = element_blank())
+```
+
+Figure \@ref(fig:fig4) shows that suburbs *Kirwan* and *Hermit Park* have the maximum approval count.
+
++ Therefore, the suburbs **Kirwan** and **Hermit Park**, have most no. of *class 1a*'s with category as *Residential-Other* in *approved projects* for *2020*.
+
+
 
 
 
